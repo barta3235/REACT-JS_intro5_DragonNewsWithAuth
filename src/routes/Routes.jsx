@@ -3,6 +3,7 @@ import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
 import Register from "../pages/register/Register";
 import NewsDetails from "../pages/newsdetails/NewsDetails";
+import PrivateRoute from "./PrivateRoute";
 
 import {
     createBrowserRouter,
@@ -20,7 +21,9 @@ import {
           },
           {
              path: '/news/:id',
-             element: <NewsDetails></NewsDetails>
+             element:<PrivateRoute>
+                <NewsDetails></NewsDetails>
+             </PrivateRoute>
           },
           {
             path: '/login',
