@@ -2,6 +2,7 @@ import Root from "../layout/Root";
 import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
 import Register from "../pages/register/Register";
+import NewsDetails from "../pages/newsdetails/NewsDetails";
 
 import {
     createBrowserRouter,
@@ -14,7 +15,12 @@ import {
       children:[
           {
             path: '/',
-            element:<Home></Home>
+            element:<Home></Home>,
+            loader: ()=> fetch('news.json')
+          },
+          {
+             path: '/news/:id',
+             element: <NewsDetails></NewsDetails>
           },
           {
             path: '/login',
